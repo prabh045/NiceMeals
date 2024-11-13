@@ -40,7 +40,7 @@ struct MealsGridScreen: View {
             .navigationTitle("\(category) Recipes")
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: MealRecipeEntity.self, destination: {  meal in
-                RecipeDetailScreen(recipieTitle: meal.mealName, recipieSubTitle: meal.mealName, image: nil)
+                RecipeDetailScreen(recipieTitle: meal.mealName, recipieSubTitle: meal.mealName, image: nil, mealRecipeEntity: meal)
             })
             .onAppear {
                 Task {

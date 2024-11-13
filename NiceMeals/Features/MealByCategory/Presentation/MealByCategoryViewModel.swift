@@ -64,6 +64,11 @@ extension MealRecipeEntity: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
+}
+
+extension MealRecipeEntity {
+    var mealId: String {
+        return recipeModel.idMeal
+    }
 }
 

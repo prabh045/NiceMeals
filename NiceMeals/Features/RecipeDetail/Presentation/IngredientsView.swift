@@ -9,6 +9,7 @@ import SwiftUI
 
 struct IngredientsView: View {
     let rows = [GridItem(.fixed(100))]
+    let ingredients: [(String, String)]
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
@@ -22,8 +23,9 @@ struct IngredientsView: View {
                 }
                 ScrollView(.horizontal) {
                     LazyHGrid(rows: rows, content: {
-                        ForEach(0..<5) { _ in
-                            IngredientView()
+                        ForEach(0..<ingredients.count) { index in
+                            let ingredientTuple = ingredients[index]
+                            IngredientView(ingredients: ingredientTuple)
                         }
                     })
                 }
@@ -34,12 +36,13 @@ struct IngredientsView: View {
 }
 
 struct IngredientView: View {
+    let ingredients: (ingredientTitle: String, ingredientMeasure: String)
     var body: some View {
         VStack {
-            Text("Onion")
+            Text(ingredients.ingredientTitle)
                 .font(.system(size: 20))
                 .foregroundStyle(.orange)
-            Text("1 finely sliced")
+            Text(ingredients.ingredientMeasure)
                 .font(.system(size: 14))
                 .foregroundStyle(.gray)
         }
@@ -50,9 +53,9 @@ struct IngredientView: View {
 }
 
 #Preview {
-    IngredientsView()
+    IngredientsView(ingredients: [("String", "String")])
 }
 
 #Preview(body: {
-    IngredientView()
+    IngredientView(ingredients: (ingredientTitle: "Sample", ingredientMeasure: "Measure"))
 })

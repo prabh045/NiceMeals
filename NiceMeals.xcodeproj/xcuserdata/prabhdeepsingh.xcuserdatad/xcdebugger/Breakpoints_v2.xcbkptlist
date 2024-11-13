@@ -7,113 +7,61 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "774C2599-562A-4B62-B6AE-A6A66C059438"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NiceMeals/MealCategoryViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "fetchMeals()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1B676711-F7F4-4903-8E05-82A6D8627838"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NiceMeals/CategoryRowView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "693A4D18-33FC-4021-9645-3B5BB615AE7D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NiceMeals/CategoryRowView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "323508C4-2FA7-4BBD-9DF3-5E133B0D9726"
+            uuid = "70D26FAC-97D3-46EC-9499-B4B836385890"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NiceMeals/CategoryRowView.swift"
+            filePath = "NiceMeals/Features/RecipeDetail/Presentation/RecipeDetailViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2362F62D-7365-404E-A516-AD867327F03E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NiceMeals/Application/NiceMealsApp.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "sharedModelContainer"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0E51AAA0-0086-42D2-820C-5F26F5122560"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NiceMeals/Features/MealsCategoryList/Presentation/CategoryListScreen.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "110C5DD4-D6E0-4BB6-A3D3-BE542FE288F7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NiceMeals/Utilities/ImageDownloader.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "downloadImage(for:)"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "fetchRecipeDetails(for:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "70D26FAC-97D3-46EC-9499-B4B836385890 - 2e05c7b1cbd1ad69"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for NiceMeals.RecipeDetailViewModel.fetchRecipeDetails(for: Swift.String) async -&gt; ()"
+                  moduleName = "NiceMeals"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prabhdeepsingh/Documents/1Documents/xCodeSwiftUImyProjs/NiceMeals/NiceMeals/Features/RecipeDetail/Presentation/RecipeDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16">
+               </Location>
+               <Location
+                  uuid = "70D26FAC-97D3-46EC-9499-B4B836385890 - a33d3342c51c2a63"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for NiceMeals.RecipeDetailViewModel.fetchRecipeDetails(for: Swift.String) async -&gt; ()"
+                  moduleName = "NiceMeals"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prabhdeepsingh/Documents/1Documents/xCodeSwiftUImyProjs/NiceMeals/NiceMeals/Features/RecipeDetail/Presentation/RecipeDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16">
+               </Location>
+               <Location
+                  uuid = "70D26FAC-97D3-46EC-9499-B4B836385890 - bf0a9e15683ae96f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for NiceMeals.RecipeDetailViewModel.fetchRecipeDetails(for: Swift.String) async -&gt; ()"
+                  moduleName = "NiceMeals"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prabhdeepsingh/Documents/1Documents/xCodeSwiftUImyProjs/NiceMeals/NiceMeals/Features/RecipeDetail/Presentation/RecipeDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
