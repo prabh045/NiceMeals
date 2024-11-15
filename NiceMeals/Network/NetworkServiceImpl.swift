@@ -10,6 +10,7 @@ import OSLog
 
 struct NetworkServiceImpl: NetworkServiceRepo {
     func fetchData<T: Decodable>(for url: String) async -> Result<T, ApiError> {
+        print("fetching for url \(url)")
         guard let url = URL(string: url) else {
             return .failure(.invalidUrl)
         }

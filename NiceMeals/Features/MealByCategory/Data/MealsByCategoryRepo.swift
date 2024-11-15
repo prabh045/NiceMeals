@@ -14,6 +14,7 @@ protocol MealByCategoryRepo {
 struct MealsByCategoryRepoImpl: MealByCategoryRepo {
     let networkService: NetworkServiceRepo
     func fetchMealByCategory(category: String) async -> Result<MealRecipeModel, ApiError> {
-        await networkService.fetchData(for: "https://www.themealdb.com/api/json/v1/1/filter.php?c=\(category)")
+        print("fetching for category \(category)")
+        return await networkService.fetchData(for: "https://www.themealdb.com/api/json/v1/1/filter.php?c=\(category)")
     }
 }

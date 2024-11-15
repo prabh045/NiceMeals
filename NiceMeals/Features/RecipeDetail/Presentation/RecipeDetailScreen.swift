@@ -8,20 +8,14 @@
 import SwiftUI
 
 struct RecipeDetailScreen: View {
-    let recipieTitle: String
-    let recipieSubTitle: String
-    let image: Image
+    @State var image: Image
     let mealRecipeEntity: MealRecipeEntity?
     let recipeDetailViewModel: RecipeDetailViewModel = RecipeDetailViewModel()
-    init(recipieTitle: String, recipieSubTitle: String, image: Image?, mealRecipeEntity: MealRecipeEntity) {
-        self.recipieTitle = recipieTitle
-        self.recipieSubTitle = recipieSubTitle
-        self.image = image ?? Image("sampleMeal")
+    init(image: Image?, mealRecipeEntity: MealRecipeEntity) {
+        self.image = Image("sampleMeal")
         self.mealRecipeEntity = mealRecipeEntity
     }
     init() {
-        self.recipieTitle = "Chicken Burger"
-        self.recipieSubTitle = "British"
         self.image = Image("sampleMeal")
         self.mealRecipeEntity = nil
     }
@@ -33,25 +27,29 @@ struct RecipeDetailScreen: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .padding(.all)
                     .frame(width: geometry.size.width, height: geometry.size.height * 0.40)
-                Text(recipieTitle)
+                Text(recipeDetailViewModel.getRecipeTitle())
                     .font(.system(size: 20))
                     .bold()
                     .fontDesign(.monospaced)
-                Text(recipieSubTitle)
+                Text(recipeDetailViewModel.getRecipeArea())
                     .font(.system(size: 14))
                     .foregroundStyle(.gray)
                     .fontDesign(.serif)
-                IngredientsView(ingredients: recipeDetailViewModel.getIngredients())
-                DirectionsView(directions: recipeDetailViewModel.getDirections())
+                IngredientsView(ingredients: recipeDetailViewModel.getRecipeIngredients())
+                DirectionsView(directions: recipeDetailViewModel.getRecipeDirections())
                 RecipeSourceView()
             }
         }
         .background(Color(uiColor: AppColors.lightSkin))
-        .navigationTitle(recipieTitle)
+        .navigationTitle(recipeDetailViewModel.getRecipeTitle())
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             Task {
                 await recipeDetailViewModel.fetchRecipeDetails(for: "\(mealRecipeEntity?.mealId ?? "")")
+                let image =  await ImageDownloader.fetchImage(for: mealRecipeEntity?.mealThumbnailUrl)
+                DispatchQueue.main.async {
+                    self.image = image
+                }
             }
         }
     }

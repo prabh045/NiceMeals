@@ -44,7 +44,7 @@ struct CategoryRowView: View {
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .onAppear {
             Task {
-                let catImage = await ImageDownloader.downloadImage(for: imageUrl)
+                let catImage = await ImageDownloader.fetchImage(for: imageUrl)
                 DispatchQueue.main.async {
                     categoryImage = catImage
                 }

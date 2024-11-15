@@ -65,7 +65,7 @@ struct MealColumnView: View {
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .onAppear {
             Task {
-                let image = await ImageDownloader.downloadImage(for: mealThumbnail)
+                let image = await ImageDownloader.fetchImage(for: mealThumbnail)
                 DispatchQueue.main.async {
                     self.image = image
                 }

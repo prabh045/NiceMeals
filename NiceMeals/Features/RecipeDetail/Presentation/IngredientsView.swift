@@ -23,7 +23,7 @@ struct IngredientsView: View {
                 }
                 ScrollView(.horizontal) {
                     LazyHGrid(rows: rows, content: {
-                        ForEach(0..<ingredients.count) { index in
+                        ForEach(0..<ingredients.count, id: \.self) { index in
                             let ingredientTuple = ingredients[index]
                             IngredientView(ingredients: ingredientTuple)
                         }

@@ -14,6 +14,8 @@ struct DirectionsView: View {
             .replacingOccurrences(of: "\n", with: "\n\n")
     }
     init(directions: String) {
+        var directions = directions.replacingOccurrences(of: "\r\n\r\n", with: "\r\n")
+        directions = directions.replacingOccurrences(of: "\n", with: "\n\n")
         self.directions = directions
     }
     var body: some View {

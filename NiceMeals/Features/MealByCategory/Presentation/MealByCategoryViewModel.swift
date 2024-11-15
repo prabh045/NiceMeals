@@ -21,7 +21,6 @@ class MealByCategoryViewModel {
         switch result {
         case .success(let recipeModel):
             mealRecipeViewModel = MealRecipeViewModel(recipeModel: recipeModel)
-            print("succes recipie model is \(recipeModel)")
         case .failure(let apiError):
             print("Failure in getting recipieModel \(apiError)")
         }
