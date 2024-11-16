@@ -10,71 +10,60 @@ import SwiftUI
 struct MealColumnView: View {
     let mealName: String
     let mealThumbnail: URL?
-    @State var image: Image?
+    @State var image: Image? = Image("sampleMeal")
     
     var body: some View {
-        //        VStack(alignment: .leading) {
-        //            Image(systemName: "mug.fill")
-        //                .resizable()
-        //                .frame(width: 100, height: 100)
-        ////            AsyncImage(url: mealThumbnail) { image in
-        ////                image
-        ////                    .resizable()
-        ////                    .frame(width: 100, height: 100)
-        ////            } placeholder: {
-        ////                Image(systemName: "network")
-        ////                    .resizable()
-        ////                    .frame(width: 100, height: 100)
-        ////                    .foregroundStyle(.white)
-        ////            }
-        //            Text(mealName)
-        //                .font(.custom("Helvetica", size: 12))
-        //                .foregroundStyle(.black)
-        //                .bold()
-        //                .lineLimit(2)
-        //        }
-        //        .padding()
-        //        .background(Color.white)
-        //        .clipShape(RoundedRectangle(cornerRadius: 10))
-        
-        ZStack(content: {
-            GeometryReader { geometry in
-                VStack(spacing: 30) {
-                    ZStack {
-                        Rectangle()
-                            .fill(Color(.gray))
-                            .aspectRatio(1, contentMode: .fit)
-                        image?
-                            .resizable()
-                            .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                            .background(Color.white)
-                            .layoutPriority(-1)
-                    }
-                    .clipped()
+        GeometryReader { geometry in
+            ZStack {
+                VStack(alignment: .leading, spacing: 15) {
+                    Spacer()
                     Text(mealName)
-                        .font(.custom("AmericanTypewriter", size: 20))
+                        .font(.custom("AmericanTypewriter", size: 18))
                         .foregroundStyle(.black)
-                        .fontWeight(.thin)
+                        .fontWeight(.semibold)
                         .lineLimit(2)
-                        .kerning(14)
+                        .kerning(4)
                         .underline()
+                    image?
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: geometry.size.width, height: 250)
+                        .clipped()
+                        
                 }
+               
+                //.background(Color.green)
+               // .frame(width: geometry.size.width, height: geometry.size.height)
             }
-        })
-        .background(Color(uiColor: AppColors.lightSkin))
-        .clipShape(RoundedRectangle(cornerRadius: 10))
-        .onAppear {
-            Task {
-                let image = await ImageDownloader.fetchImage(for: mealThumbnail)
-                DispatchQueue.main.async {
-                    self.image = image
+            .frame(width: geometry.size.width, height: geometry.size.height)
+            .background(LinearGradient(colors: [.yellow,.red,.orange], startPoint: UnitPoint(x:0,y:0), endPoint: UnitPoint(x:1,y:1)).opacity(0.2))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .onAppear {
+                Task {
+                    let image = await ImageDownloader.fetchImage(for: mealThumbnail)
+                    DispatchQueue.main.async {
+                         self.image = image
+                    }
                 }
             }
         }
-        // .padding()
     }
 }
 
 #Preview {
     MealColumnView(mealName: "Curry Yum!", mealThumbnail: nil)
 }
+
+//MARK: For future help
+
+//                    ZStack {
+//                        Rectangle()
+//                            .fill(Color(.gray))
+//                            .aspectRatio(1, contentMode: .fit)
+//                        image?
+//                            .resizable()
+//                            .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+//                            .background(Color.white)
+//                            .layoutPriority(-1)
+//                    }
+//                    .clipped()

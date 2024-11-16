@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct MealsGridScreen: View {
-    private let rows = [
-        GridItem()]
+    private let columns = [GridItem()]
     let mealByCategoryViewModel: MealByCategoryViewModel
     let category: String
     
@@ -21,16 +20,16 @@ struct MealsGridScreen: View {
     
     var body: some View {
         GeometryReader { geometry in
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHGrid(rows: rows, spacing: 10) {
+            ScrollView(.vertical, showsIndicators: false) {
+                LazyVGrid(columns: columns, spacing: 10) {
                     if 2 != 2 {
                         ContentUnavailableView("Nil", systemImage: "network")
                     } else {
                         ForEach(mealByCategoryViewModel.mealRecipeViewModel?.meals ?? []) {  meal in
                             NavigationLink(value: meal) {
                                 MealColumnView(mealName: meal.mealName, mealThumbnail: meal.mealThumbnailUrl)
-                                    .frame(width: geometry.size.width * 0.90)
-                                    .padding(.leading, 10)
+                                    .frame(width: geometry.size.width * 0.90, height: 300)
+
                             }
                         }
                     }
@@ -48,6 +47,7 @@ struct MealsGridScreen: View {
                 }
             }
         }
+        .background(Color(uiColor: AppColors.lightSkin))
     }
 }
 
