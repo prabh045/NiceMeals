@@ -29,7 +29,7 @@ struct CategoryListScreen: View {
             .listRowSpacing(-10)
             .listRowSeparator(.hidden)
             .scrollContentBackground(.hidden)
-            .background(Color(uiColor: AppColors.lightSkin))
+            .background(AppColors.appGradient.opacity(0.15))
             .navigationDestination(for: MealCategoryViewModel.self) { meal in
                 MealsGridScreen(category: meal.mealName)
             }

@@ -10,7 +10,7 @@ import SwiftUI
 struct MealColumnView: View {
     let mealName: String
     let mealThumbnail: URL?
-    @State var image: Image? = Image("sampleMeal")
+    @State var image: Image? = Image("spices")
     
     var body: some View {
         GeometryReader { geometry in
@@ -24,19 +24,19 @@ struct MealColumnView: View {
                         .lineLimit(2)
                         .kerning(4)
                         .underline()
+                        .padding(.leading, 5)
                     image?
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: geometry.size.width, height: 250)
+                        .frame(width: geometry.size.width * 0.95, height: 245)
                         .clipped()
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .padding(.bottom, 15)
                         
                 }
-               
-                //.background(Color.green)
-               // .frame(width: geometry.size.width, height: geometry.size.height)
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
-            .background(LinearGradient(colors: [.yellow,.red,.orange], startPoint: UnitPoint(x:0,y:0), endPoint: UnitPoint(x:1,y:1)).opacity(0.2))
+            .background(Color(uiColor: AppColors.lightSkin))
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .onAppear {
                 Task {

@@ -27,6 +27,7 @@ struct RecipeDetailScreen: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .padding(.all)
                     .frame(width: geometry.size.width, height: geometry.size.height * 0.40)
+                    .shadow(radius: 10)
                 Text(recipeDetailViewModel.getRecipeTitle())
                     .font(.system(size: 20))
                     .bold()
@@ -40,7 +41,7 @@ struct RecipeDetailScreen: View {
                 RecipeSourceView()
             }
         }
-        .background(Color(uiColor: AppColors.lightSkin))
+        .background(AppColors.appGradient.opacity(0.15))
         .navigationTitle(recipeDetailViewModel.getRecipeTitle())
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {

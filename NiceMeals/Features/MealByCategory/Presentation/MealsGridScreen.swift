@@ -21,7 +21,7 @@ struct MealsGridScreen: View {
     var body: some View {
         GeometryReader { geometry in
             ScrollView(.vertical, showsIndicators: false) {
-                LazyVGrid(columns: columns, spacing: 10) {
+                LazyVGrid(columns: columns, spacing: 15) {
                     if 2 != 2 {
                         ContentUnavailableView("Nil", systemImage: "network")
                     } else {
@@ -29,6 +29,7 @@ struct MealsGridScreen: View {
                             NavigationLink(value: meal) {
                                 MealColumnView(mealName: meal.mealName, mealThumbnail: meal.mealThumbnailUrl)
                                     .frame(width: geometry.size.width * 0.90, height: 300)
+                                    .shadow(radius: 8)
 
                             }
                         }
@@ -47,7 +48,7 @@ struct MealsGridScreen: View {
                 }
             }
         }
-        .background(Color(uiColor: AppColors.lightSkin))
+        .background(AppColors.appGradient.opacity(0.15))
     }
 }
 
