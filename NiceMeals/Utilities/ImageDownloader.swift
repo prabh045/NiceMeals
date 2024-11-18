@@ -18,7 +18,6 @@ struct ImageDownloader {
                 return Image(Constants.placeholderIcon)
             }
             let image = Image(uiImage: uiImage)
-            print("Returning image from nscache for \(url)")
             return image
         }
         let urlRequest = URLRequest(url: url)
@@ -29,7 +28,6 @@ struct ImageDownloader {
             }
             imageCache.setObject(NSData(data: data), forKey: NSString(string: "\(url)"))
             let image = Image(uiImage: uiImage)
-            print("Returning image for \(url)")
             return image
         }
         catch(let error){

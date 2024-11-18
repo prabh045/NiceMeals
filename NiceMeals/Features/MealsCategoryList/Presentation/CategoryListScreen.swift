@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CategoryListScreen: View {
     let mealCategoryViewModel = MealCategoryListViewModel(fetchMealsCategoryUseCase: FetchMealsUseCaseImp(mealsCategoryRepo:  MealCategoryRepoImpl(networkService: NetworkServiceImpl())))
+    @State private var searchText = ""
     
     var body: some View {
         NavigationStack {
@@ -16,8 +17,7 @@ struct CategoryListScreen: View {
                 if mealCategoryViewModel.mealViewModel == nil  {
                     ContentUnavailableView("Nil", systemImage: "network")
                 } else {
-                    ForEach(mealCategoryViewModel.mealViewModel!.mealCategories) {  category in
-                        //CategoryRowView(categoryName: category.mealName, categoryDescription: category.mealDescription, imageUrl: category.mealImageUrl)
+                    ForEach(mealCategoryViewModel.mealViewModel!.mealCategories(by: searchText)) {  category in
                         NavigationLink(value: category) {
                             CategoryRowView(categoryName: category.mealName, categoryDescription: category.mealDescription, imageUrl: category.mealImageUrl)
                         }
@@ -27,7 +27,7 @@ struct CategoryListScreen: View {
             }
             .navigationTitle("Recipe Categories")
             .listRowSpacing(-10)
-            .listRowSeparator(.hidden)
+            .listRowSeparator(.hidden, edges: .all)
             .scrollContentBackground(.hidden)
             .background(AppColors.appGradient.opacity(0.15))
             .navigationDestination(for: MealCategoryViewModel.self) { meal in
@@ -38,6 +38,7 @@ struct CategoryListScreen: View {
                     await mealCategoryViewModel.fetchMeals()
                 }
             }
+            .searchable(text: $searchText, prompt: "Let's search for a Category")
         }
     }
 }

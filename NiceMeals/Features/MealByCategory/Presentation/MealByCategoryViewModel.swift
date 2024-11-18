@@ -38,6 +38,16 @@ struct MealRecipeViewModel: Identifiable {
     var meals: [MealRecipeEntity] {
         recipeModel.meals.map { MealRecipeEntity(recipeModel: $0) }
     }
+    
+    func meals(by recipeSearch: String) -> [MealRecipeEntity] {
+        if recipeSearch.isEmpty {
+            return recipeModel.meals.map { MealRecipeEntity(recipeModel: $0) }
+        }
+        let filteredResults = recipeModel.meals.filter { meal in
+            meal.strMeal.lowercased().contains(recipeSearch.lowercased())
+        }
+        return filteredResults.map { MealRecipeEntity(recipeModel: $0) }
+    }
 }
 
 struct MealRecipeEntity: Identifiable {

@@ -41,6 +41,20 @@ struct MealViewModel: Identifiable {
             MealCategoryViewModel(mealCatModel: $0)
         }
     }
+    
+    func mealCategories(by category: String) -> [MealCategoryViewModel] {
+        if category.isEmpty {
+            return mealCatModel.categories.map {
+                 MealCategoryViewModel(mealCatModel: $0)
+             }
+        }
+        let filtered = mealCatModel.categories.filter { meal in
+            meal.strCategory.lowercased().contains(category.lowercased())
+        }
+        return filtered.map {
+            MealCategoryViewModel(mealCatModel: $0)
+        }
+    }
 }
 
 struct MealCategoryViewModel: Identifiable {

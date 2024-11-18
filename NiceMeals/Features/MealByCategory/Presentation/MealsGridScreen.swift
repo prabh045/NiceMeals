@@ -11,6 +11,7 @@ struct MealsGridScreen: View {
     private let columns = [GridItem()]
     let mealByCategoryViewModel: MealByCategoryViewModel
     let category: String
+    @State private var searchText = ""
     
     init(category: String) {
         self.category = category
@@ -25,7 +26,7 @@ struct MealsGridScreen: View {
                     if 2 != 2 {
                         ContentUnavailableView("Nil", systemImage: "network")
                     } else {
-                        ForEach(mealByCategoryViewModel.mealRecipeViewModel?.meals ?? []) {  meal in
+                        ForEach(mealByCategoryViewModel.mealRecipeViewModel?.meals(by: searchText) ?? []) {  meal in
                             NavigationLink(value: meal) {
                                 MealColumnView(mealName: meal.mealName, mealThumbnail: meal.mealThumbnailUrl)
                                     .frame(width: geometry.size.width * 0.90, height: 300)
@@ -47,6 +48,7 @@ struct MealsGridScreen: View {
                     await mealByCategoryViewModel.fetchMealsByCategory()
                 }
             }
+            .searchable(text: $searchText, prompt: "Let's search for a Recipe")
         }
         .background(AppColors.appGradient.opacity(0.15))
     }
