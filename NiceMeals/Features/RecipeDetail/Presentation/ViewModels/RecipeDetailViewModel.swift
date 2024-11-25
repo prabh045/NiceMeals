@@ -9,7 +9,7 @@ import Foundation
 
 @Observable
 class RecipeDetailViewModel {
-    var recipeDetailModel: RecipeDetailModel?
+   private var recipeDetailModel: RecipeDetailModel?
     
     @MainActor
     func fetchRecipeDetails(for id: String) async {
@@ -72,5 +72,24 @@ class RecipeDetailViewModel {
             return "No Title Available"
         }
         return mealData.strMeal
+    }
+    
+    private func getId() -> String {
+        guard let mealData = recipeDetailModel?.meals.first else {
+            return "nil"
+        }
+        return mealData.idMeal
+    }
+    
+    func getRecipeSource() -> String {
+        guard let mealData = recipeDetailModel?.meals.first else {
+            return "No Source Available"
+        }
+        return mealData.strSource.unwrappedValue()
+    }
+    
+    func addToFavorites() {
+        let favRecipeModel = FavRecipeModel(favRecipeId: getId(), favRecipeTitle: getRecipeTitle(), favRecipeArea: getRecipeArea(), ingredients: getRecipeIngredients(), favRecipeInstructions: getRecipeDirections(), favRecipeSource: getRecipeSource() , favRecipeImage: nil)
+        //TODO: Persist data
     }
 }

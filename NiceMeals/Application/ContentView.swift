@@ -10,7 +10,16 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        CategoryListScreen()
+        TabView {
+            CategoryListScreen()
+                .tabItem {
+                    Label("Categories", systemImage: "menucard")
+                }
+            FavoritesScreen()
+                .tabItem {
+                    Label("Favorites", systemImage: "heart")
+                }
+        }
     }
     
 }

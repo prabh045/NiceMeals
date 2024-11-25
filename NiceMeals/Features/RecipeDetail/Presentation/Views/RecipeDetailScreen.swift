@@ -38,7 +38,7 @@ struct RecipeDetailScreen: View {
                     .fontDesign(.serif)
                 IngredientsView(ingredients: recipeDetailViewModel.getRecipeIngredients())
                 DirectionsView(directions: recipeDetailViewModel.getRecipeDirections())
-                RecipeSourceView()
+                RecipeSourceView(source: recipeDetailViewModel.getRecipeSource())
             }
         }
         .background(AppColors.appGradient.opacity(0.15))
