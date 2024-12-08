@@ -12,6 +12,7 @@ struct MealsGridScreen: View {
     let mealByCategoryViewModel: MealByCategoryViewModel
     let category: String
     @State private var searchText = ""
+    @Environment(\.managedObjectContext) var managedObjectContext
     
     init(category: String) {
         self.category = category
@@ -28,10 +29,9 @@ struct MealsGridScreen: View {
                     } else {
                         ForEach(mealByCategoryViewModel.mealRecipeViewModel?.meals(by: searchText) ?? []) {  meal in
                             NavigationLink(value: meal) {
-                                MealColumnView(mealName: meal.mealName, mealThumbnail: meal.mealThumbnailUrl)
-                                    .frame(width: geometry.size.width * 0.90, height: 300)
-                                    .shadow(radius: 8)
-
+                                MealColumnView(mealEntity: meal)
+                                .frame(width: geometry.size.width * 0.90, height: 300)
+                                .shadow(radius: 8)
                             }
                         }
                     }
@@ -51,6 +51,7 @@ struct MealsGridScreen: View {
             .searchable(text: $searchText, prompt: "Let's search for a Recipe")
         }
         .background(AppColors.appGradient.opacity(0.15))
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 

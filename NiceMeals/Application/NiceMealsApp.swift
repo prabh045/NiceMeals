@@ -10,23 +10,16 @@ import SwiftData
 
 @main
 struct NiceMealsApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    let persistenceController = PersistenceController.shared
+    @Environment(\.scenePhase) var scenePhase
 
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(sharedModelContainer)
+        .environment(\.managedObjectContext, persistenceController.container.viewContext)
+        .onChange(of: scenePhase) { (_,_) in
+            persistenceController.save()
+        }
     }
 }

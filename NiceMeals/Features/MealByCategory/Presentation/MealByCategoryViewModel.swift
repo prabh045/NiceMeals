@@ -63,6 +63,10 @@ struct MealRecipeEntity: Identifiable {
     var mealThumbnailUrl: URL? {
         URL(string: mealThumbnailString)
     }
+    
+    static func testMealRecipeEntity() -> Self {
+        MealRecipeEntity(recipeModel: MealRecipeModel.MealModel.testMeal())
+    }
 }
 
 extension MealRecipeEntity: Hashable {
@@ -78,6 +82,12 @@ extension MealRecipeEntity: Hashable {
 extension MealRecipeEntity {
     var mealId: String {
         return recipeModel.idMeal
+    }
+}
+
+extension MealRecipeEntity {
+    static func initFrom(entity: FavoriteRecipes) -> Self {
+        MealRecipeEntity(recipeModel: MealRecipeModel.MealModel(strMeal: entity.title ?? "", strMealThumb: entity.imageData ?? "", idMeal: entity.id ?? ""))
     }
 }
 

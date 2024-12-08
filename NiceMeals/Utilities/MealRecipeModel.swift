@@ -13,6 +13,10 @@ struct MealRecipeModel: Decodable {
         let strMeal: String
         let strMealThumb: String
         let idMeal: String
+        
+        static func testMeal() -> Self {
+            MealModel(strMeal: "", strMealThumb: "", idMeal: "")
+        }
     }
 }
 

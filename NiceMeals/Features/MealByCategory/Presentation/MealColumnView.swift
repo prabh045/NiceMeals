@@ -8,23 +8,27 @@
 import SwiftUI
 
 struct MealColumnView: View {
-    let mealName: String
-    let mealThumbnail: URL?
     @State var image: Image? = Image("spices")
+    let mealEntity: MealRecipeEntity
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 VStack(alignment: .leading, spacing: 15) {
                     Spacer()
-                    Text(mealName)
-                        .font(.custom("AmericanTypewriter", size: 18))
-                        .foregroundStyle(.black)
-                        .fontWeight(.semibold)
-                        .lineLimit(2)
-                        .kerning(4)
-                        .underline()
-                        .padding(.leading, 5)
+                    HStack {
+                        Spacer()
+                        Text(mealEntity.mealName)
+                            .font(.custom("AmericanTypewriter", size: 18))
+                            .foregroundStyle(.black)
+                            .fontWeight(.semibold)
+                            .lineLimit(2)
+                            .kerning(4)
+                            .underline()
+                            .padding(.leading, 5)
+                        Spacer()
+                        Spacer()
+                    }
                     image?
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -32,7 +36,6 @@ struct MealColumnView: View {
                         .clipped()
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .padding(.bottom, 15)
-                        
                 }
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
@@ -40,7 +43,7 @@ struct MealColumnView: View {
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .onAppear {
                 Task {
-                    let image = await ImageDownloader.fetchImage(for: mealThumbnail)
+                    let image = await ImageDownloader.fetchImage(for: mealEntity.mealThumbnailUrl)
                     DispatchQueue.main.async {
                          self.image = image
                     }
@@ -51,7 +54,7 @@ struct MealColumnView: View {
 }
 
 #Preview {
-    MealColumnView(mealName: "Curry Yum!", mealThumbnail: nil)
+    MealColumnView(mealEntity: MealRecipeEntity.testMealRecipeEntity())
 }
 
 //MARK: For future help

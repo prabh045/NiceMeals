@@ -17,7 +17,7 @@ struct ContentView: View {
                 }
             FavoritesScreen()
                 .tabItem {
-                    Label("Favorites", systemImage: "heart")
+                    Label("Favorites", systemImage: "star")
                 }
         }
     }

@@ -5,6 +5,7 @@
 //  Created by Prabhdeep Singh on 12/11/24.
 //
 
+import CoreData
 import Foundation
 
 @Observable
@@ -88,8 +89,21 @@ class RecipeDetailViewModel {
         return mealData.strSource.unwrappedValue()
     }
     
-    func addToFavorites() {
-        let favRecipeModel = FavRecipeModel(favRecipeId: getId(), favRecipeTitle: getRecipeTitle(), favRecipeArea: getRecipeArea(), ingredients: getRecipeIngredients(), favRecipeInstructions: getRecipeDirections(), favRecipeSource: getRecipeSource() , favRecipeImage: nil)
-        //TODO: Persist data
+    func getRecipeThumbnailString() -> String {
+        guard let mealData = recipeDetailModel?.meals.first else {
+            return "No Source Available"
+        }
+        return mealData.strMealThumb.unwrappedValue()
+    }
+    
+    func addToFavorites(context: NSManagedObjectContext) {
+        let recipeEntity = FavoriteRecipes(context: context)
+        recipeEntity.id = getId()
+        recipeEntity.title = getRecipeTitle()
+        recipeEntity.imageData = getRecipeThumbnailString()
+        //no id means no data
+        if getId() != "nil" {
+            PersistenceController.shared.save()
+        }
     }
 }

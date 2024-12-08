@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RecipeDetailScreen: View {
     @State var image: Image
+    @Environment(\.managedObjectContext) var managedObjectContext
     let mealRecipeEntity: MealRecipeEntity?
     let recipeDetailViewModel: RecipeDetailViewModel = RecipeDetailViewModel()
     init(image: Image?, mealRecipeEntity: MealRecipeEntity) {
@@ -36,6 +37,12 @@ struct RecipeDetailScreen: View {
                     .font(.system(size: 14))
                     .foregroundStyle(.gray)
                     .fontDesign(.serif)
+                Button {
+                    recipeDetailViewModel.addToFavorites(context: managedObjectContext)
+                } label: {
+                    FavoriteView()
+                }
+                .padding(.leading)
                 IngredientsView(ingredients: recipeDetailViewModel.getRecipeIngredients())
                 DirectionsView(directions: recipeDetailViewModel.getRecipeDirections())
                 RecipeSourceView(source: recipeDetailViewModel.getRecipeSource())
