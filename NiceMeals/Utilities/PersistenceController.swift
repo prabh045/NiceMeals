@@ -39,10 +39,26 @@ struct PersistenceController {
         if context.hasChanges {
             do {
                 try context.save()
-                print("recipe saved!")
+                print("changes saved")
             } catch (let error) {
-                print("error saving recipe \(error.localizedDescription)")
+                print("error saving changes \(error.localizedDescription)")
             }
+        }
+    }
+    
+    func deleteEntity(id: String) {
+        let context = container.viewContext
+        let fetchRequest: NSFetchRequest<FavoriteRecipes> = FavoriteRecipes.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
+        do {
+            let results = try context.fetch(fetchRequest)
+            for object in results {
+                context.delete(object)
+            }
+            save()
+            print("entity deletion success")
+        } catch(let error) {
+            print("Error deleting entity with id \(id): \(error.localizedDescription)")
         }
     }
 }

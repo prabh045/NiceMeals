@@ -37,12 +37,15 @@ struct RecipeDetailScreen: View {
                     .font(.system(size: 14))
                     .foregroundStyle(.gray)
                     .fontDesign(.serif)
-                Button {
-                    recipeDetailViewModel.addToFavorites(context: managedObjectContext)
-                } label: {
-                    FavoriteView()
+                HStack {
+                    FavoriteView {
+                        recipeDetailViewModel.addToFavorites(context: managedObjectContext)
+                    }
+                    RemoveFavoriteView {
+                        //remove as favorite
+                        recipeDetailViewModel.deletefromFavorites()
+                    }
                 }
-                .padding(.leading)
                 IngredientsView(ingredients: recipeDetailViewModel.getRecipeIngredients())
                 DirectionsView(directions: recipeDetailViewModel.getRecipeDirections())
                 RecipeSourceView(source: recipeDetailViewModel.getRecipeSource())

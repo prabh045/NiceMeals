@@ -23,6 +23,7 @@
 		7F4B16A12CF4B44E00E81590 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4B16A02CF4B44E00E81590 /* PersistenceController.swift */; };
 		7F4FCB3A2C6548E300FC3551 /* FetchMealsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4FCB392C6548E300FC3551 /* FetchMealsUseCase.swift */; };
 		7F4FCB3C2C6548F500FC3551 /* FetchMealsUseCaseImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4FCB3B2C6548F500FC3551 /* FetchMealsUseCaseImp.swift */; };
+		7F5F5D212D07226B0059C4DA /* RemoveFavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F5D202D07226B0059C4DA /* RemoveFavoriteView.swift */; };
 		7F63936F2C6145AC00947A52 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F63936E2C6145AC00947A52 /* ApiError.swift */; };
 		7F82A0992C67E862004A1DA9 /* MealCategoryRepoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F82A0982C67E862004A1DA9 /* MealCategoryRepoImpl.swift */; };
 		7F82A0A52C67E95F004A1DA9 /* NetworkServiceRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F82A0A42C67E95F004A1DA9 /* NetworkServiceRepo.swift */; };
@@ -61,6 +62,7 @@
 		7F4B16A02CF4B44E00E81590 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		7F4FCB392C6548E300FC3551 /* FetchMealsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMealsUseCase.swift; sourceTree = "<group>"; };
 		7F4FCB3B2C6548F500FC3551 /* FetchMealsUseCaseImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMealsUseCaseImp.swift; sourceTree = "<group>"; };
+		7F5F5D202D07226B0059C4DA /* RemoveFavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFavoriteView.swift; sourceTree = "<group>"; };
 		7F63936E2C6145AC00947A52 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		7F82A0982C67E862004A1DA9 /* MealCategoryRepoImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCategoryRepoImpl.swift; sourceTree = "<group>"; };
 		7F82A0A42C67E95F004A1DA9 /* NetworkServiceRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceRepo.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				7F0B94AE2CA2F31100825646 /* DirectionsView.swift */,
 				7F0B94B02CA2F81200825646 /* RecipeSourceView.swift */,
 				7F9119D92CEE194600F09625 /* FavoriteView.swift */,
+				7F5F5D202D07226B0059C4DA /* RemoveFavoriteView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				7F4FCB3C2C6548F500FC3551 /* FetchMealsUseCaseImp.swift in Sources */,
 				7FDAD59D2C5E65FE0091C55F /* NiceMealsApp.swift in Sources */,
 				7F82A0992C67E862004A1DA9 /* MealCategoryRepoImpl.swift in Sources */,
+				7F5F5D212D07226B0059C4DA /* RemoveFavoriteView.swift in Sources */,
 				7F4B16A12CF4B44E00E81590 /* PersistenceController.swift in Sources */,
 				7FDAD5AF2C5E6A170091C55F /* CategoryListScreen.swift in Sources */,
 				7F82E1552C6D325B0030A346 /* MealColumnView.swift in Sources */,

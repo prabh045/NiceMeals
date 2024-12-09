@@ -106,4 +106,10 @@ class RecipeDetailViewModel {
             PersistenceController.shared.save()
         }
     }
+    
+    func deletefromFavorites() {
+        if getId() != "nil" {
+            PersistenceController.shared.deleteEntity(id: getId())
+        }
+    }
 }

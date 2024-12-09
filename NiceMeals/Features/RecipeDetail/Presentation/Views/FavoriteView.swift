@@ -8,21 +8,25 @@
 import SwiftUI
 
 struct FavoriteView: View {
+    let buttonCTA: () -> Void
     var body: some View {
-        HStack {
-            Image(systemName: "hand.thumbsup")
-                .resizable()
-                .frame(width: 20, height: 25)
-                .foregroundStyle(.blue)
-            Text("Add to Favorites")
-                .font(.system(size: 14))
-                .foregroundStyle(.blue)
-                .fontDesign(.serif)
-            Spacer()
-        }
+        Button(action: {
+            buttonCTA()
+        }, label: {
+            HStack {
+                Image(systemName: "hand.thumbsup")
+                    .resizable()
+                    .frame(width: 20, height: 25)
+                    .foregroundStyle(.blue)
+                Text("Add to Favorites")
+                    .font(.system(size: 14))
+                    .foregroundStyle(.blue)
+                    .fontDesign(.serif)
+            }
+        })
     }
 }
 
 #Preview {
-    FavoriteView()
+    FavoriteView(){}
 }
