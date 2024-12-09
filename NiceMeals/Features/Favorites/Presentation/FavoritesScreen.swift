@@ -33,8 +33,8 @@ struct FavoritesScreen: View {
                 }
                 .navigationTitle("Favorite Recipes")
                 .navigationBarTitleDisplayMode(.automatic)
-                .navigationDestination(for: MealRecipeEntity.self, destination: {  meal in
-                    RecipeDetailScreen(image: nil, mealRecipeEntity: meal)
+                .navigationDestination(for: FavoriteRecipes.self, destination: {  recipe in
+                    RecipeDetailScreen(image: nil, mealRecipeEntity: MealRecipeEntity.initFrom(entity: recipe))
                 })
             }
             .background(AppColors.appGradient.opacity(0.15))
