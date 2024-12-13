@@ -60,5 +60,22 @@ struct PersistenceController {
         } catch(let error) {
             print("Error deleting entity with id \(id): \(error.localizedDescription)")
         }
+        
+    }
+    
+    func checkEntityForExistence(for id: String) -> Bool {
+        let context = container.viewContext
+        let fetchRequest: NSFetchRequest<FavoriteRecipes> = FavoriteRecipes.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
+        do {
+            let results = try context.fetch(fetchRequest)
+            if results.first?.id == id {
+                return true
+            }
+            return false
+        } catch(let error) {
+            print("Error finding entity with id \(id): \(error.localizedDescription)")
+            return false
+        }
     }
 }

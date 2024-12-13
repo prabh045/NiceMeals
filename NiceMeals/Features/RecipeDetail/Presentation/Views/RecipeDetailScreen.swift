@@ -38,13 +38,19 @@ struct RecipeDetailScreen: View {
                     .foregroundStyle(.gray)
                     .fontDesign(.serif)
                 HStack {
-                    FavoriteView {
-                        recipeDetailViewModel.addToFavorites(context: managedObjectContext)
+                    Group {
+                        if recipeDetailViewModel.isFavorite || recipeDetailViewModel.isRecipeFavorite() {
+                            RemoveFavoriteView {
+                                recipeDetailViewModel.deletefromFavorites()
+                            }
+                        } else {
+                            FavoriteView {
+                                recipeDetailViewModel.addToFavorites(context: managedObjectContext)
+                            }
+                        }
                     }
-                    RemoveFavoriteView {
-                        //remove as favorite
-                        recipeDetailViewModel.deletefromFavorites()
-                    }
+                    .padding(.leading)
+                    Spacer()
                 }
                 IngredientsView(ingredients: recipeDetailViewModel.getRecipeIngredients())
                 DirectionsView(directions: recipeDetailViewModel.getRecipeDirections())

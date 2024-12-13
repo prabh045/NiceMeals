@@ -10,7 +10,8 @@ import Foundation
 
 @Observable
 class RecipeDetailViewModel {
-   private var recipeDetailModel: RecipeDetailModel?
+    private var recipeDetailModel: RecipeDetailModel?
+    var isFavorite = false
     
     @MainActor
     func fetchRecipeDetails(for id: String) async {
@@ -20,7 +21,6 @@ class RecipeDetailViewModel {
         } catch (let error) {
             print("error while getting recipedetail model \(error.localizedDescription)")
         }
-       // return result
     }
     
     func getRecipeIngredients() -> [(String, String)] {
@@ -104,12 +104,22 @@ class RecipeDetailViewModel {
         //no id means no data
         if getId() != "nil" {
             PersistenceController.shared.save()
+            isFavorite = true
         }
     }
     
     func deletefromFavorites() {
         if getId() != "nil" {
             PersistenceController.shared.deleteEntity(id: getId())
+            isFavorite = false
         }
+    }
+    
+    func isRecipeFavorite() -> Bool {
+        let id = getId()
+        if id != "nil" && PersistenceController.shared.checkEntityForExistence(for: id) {
+            return true
+        }
+        return false
     }
 }
