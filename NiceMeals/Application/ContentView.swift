@@ -20,6 +20,7 @@ struct ContentView: View {
                     Label("Favorites", systemImage: "star")
                 }
         }
+        .tint(.black)
     }
     
 }

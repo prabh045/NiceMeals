@@ -24,7 +24,6 @@ struct RemoveFavoriteView: View {
                     .fontDesign(.serif)
             }
         }
-        .padding(.leading)
     }
 }
 

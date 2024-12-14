@@ -17,7 +17,6 @@ struct MealColumnView: View {
                 VStack(alignment: .leading, spacing: 15) {
                     Spacer()
                     HStack {
-                        Spacer()
                         Text(mealEntity.mealName)
                             .font(.custom("AmericanTypewriter", size: 18))
                             .foregroundStyle(.black)
@@ -25,17 +24,15 @@ struct MealColumnView: View {
                             .lineLimit(2)
                             .kerning(4)
                             .underline()
-                            .padding(.leading, 5)
-                        Spacer()
+                            .padding(.leading, 10)
                         Spacer()
                     }
                     image?
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: geometry.size.width * 0.95, height: 245)
+                        .frame(width: geometry.size.width, height: 245)
                         .clipped()
                         .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .padding(.bottom, 15)
                 }
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
@@ -45,7 +42,9 @@ struct MealColumnView: View {
                 Task {
                     let image = await ImageDownloader.fetchImage(for: mealEntity.mealThumbnailUrl)
                     DispatchQueue.main.async {
-                         self.image = image
+                        withAnimation(.smooth(duration: 1.5)) {
+                            self.image = image
+                        }
                     }
                 }
             }

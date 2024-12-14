@@ -25,27 +25,36 @@ struct RecipeDetailScreen: View {
             ScrollView(.vertical) {
                 image
                     .resizable()
+                    .aspectRatio(contentMode: .fit)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .padding(.all)
-                    .frame(width: geometry.size.width, height: geometry.size.height * 0.40)
+                    .frame(width: geometry.size.width, height: geometry.size.height * 0.55)
                     .shadow(radius: 10)
                 Text(recipeDetailViewModel.getRecipeTitle())
                     .font(.system(size: 20))
                     .bold()
                     .fontDesign(.monospaced)
+                    .padding([.leading,.trailing], 10)
                 Text(recipeDetailViewModel.getRecipeArea())
                     .font(.system(size: 14))
                     .foregroundStyle(.gray)
                     .fontDesign(.serif)
+                    .padding([.leading,.trailing], 10)
                 HStack {
                     Group {
                         if recipeDetailViewModel.isFavorite || recipeDetailViewModel.isRecipeFavorite() {
                             RemoveFavoriteView {
-                                recipeDetailViewModel.deletefromFavorites()
+                                withAnimation {
+                                    recipeDetailViewModel.deletefromFavorites()
+                                }
+                                
                             }
                         } else {
                             FavoriteView {
-                                recipeDetailViewModel.addToFavorites(context: managedObjectContext)
+                                withAnimation {
+                                    recipeDetailViewModel.addToFavorites(context: managedObjectContext)
+                                }
+                                
                             }
                         }
                     }
@@ -60,6 +69,7 @@ struct RecipeDetailScreen: View {
         .background(AppColors.appGradient.opacity(0.15))
         .navigationTitle(recipeDetailViewModel.getRecipeTitle())
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar(.hidden, for: .tabBar)
         .onAppear {
             Task {
                 await recipeDetailViewModel.fetchRecipeDetails(for: "\(mealRecipeEntity?.mealId ?? "")")

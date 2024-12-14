@@ -20,6 +20,7 @@ struct CategoryListScreen: View {
                     ForEach(mealCategoryViewModel.mealViewModel!.mealCategories(by: searchText)) {  category in
                         NavigationLink(value: category) {
                             CategoryRowView(categoryName: category.mealName, categoryDescription: category.mealDescription, imageUrl: category.mealImageUrl)
+                                .shadow(radius: 5)
                         }
                     }
                     .listRowBackground(Color.clear)
