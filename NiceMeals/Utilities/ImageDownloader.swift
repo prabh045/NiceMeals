@@ -7,9 +7,13 @@
 
 import SwiftUI
 
-struct ImageDownloader {
-    static private var imageCache = NSCache<NSString,NSData>()
-    static func fetchImage(for url: URL?) async -> Image {
+protocol ImageDownloaderProtocol {
+    func fetchImage(for url: URL?) async -> Image
+}
+
+struct ImageDownloader: ImageDownloaderProtocol {
+    private var imageCache = NSCache<NSString,NSData>()
+    func fetchImage(for url: URL?) async -> Image {
         guard let url else {
             return Image(Constants.placeholderIcon)
         }

@@ -11,6 +11,7 @@ struct CategoryRowView: View {
     let categoryName: String
     let categoryDescription: String
     let imageUrl: URL?
+    let imageDownloader: ImageDownloaderProtocol = ImageDownloader()
     @State var categoryImage: Image = Image(systemName: "fork.knife.circle.fill")
     
     var body: some View {
@@ -36,7 +37,7 @@ struct CategoryRowView: View {
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .onAppear {
             Task {
-                let catImage = await ImageDownloader.fetchImage(for: imageUrl)
+                let catImage = await imageDownloader.fetchImage(for: imageUrl)
                 DispatchQueue.main.async {
                     withAnimation(.smooth(duration: 1.5)) {
                         categoryImage = catImage
@@ -44,7 +45,6 @@ struct CategoryRowView: View {
                 }
             }
         }
-        
     }
 }
 

@@ -12,6 +12,7 @@ struct RecipeDetailScreen: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     let mealRecipeEntity: MealRecipeEntity?
     let recipeDetailViewModel: RecipeDetailViewModel = RecipeDetailViewModel()
+    let imageDownloader: ImageDownloaderProtocol = ImageDownloader()
     init(image: Image?, mealRecipeEntity: MealRecipeEntity) {
         self.image = Image("sampleMeal")
         self.mealRecipeEntity = mealRecipeEntity
@@ -73,7 +74,7 @@ struct RecipeDetailScreen: View {
         .onAppear {
             Task {
                 await recipeDetailViewModel.fetchRecipeDetails(for: "\(mealRecipeEntity?.mealId ?? "")")
-                let image =  await ImageDownloader.fetchImage(for: mealRecipeEntity?.mealThumbnailUrl)
+                let image =  await imageDownloader.fetchImage(for: mealRecipeEntity?.mealThumbnailUrl)
                 DispatchQueue.main.async {
                     self.image = image
                 }

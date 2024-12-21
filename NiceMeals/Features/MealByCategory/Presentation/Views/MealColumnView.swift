@@ -10,6 +10,7 @@ import SwiftUI
 struct MealColumnView: View {
     @State var image: Image? = Image("spices")
     let mealEntity: MealRecipeEntity
+    let imageDownloader: ImageDownloaderProtocol = ImageDownloader()
     
     var body: some View {
         GeometryReader { geometry in
@@ -40,7 +41,7 @@ struct MealColumnView: View {
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .onAppear {
                 Task {
-                    let image = await ImageDownloader.fetchImage(for: mealEntity.mealThumbnailUrl)
+                    let image = await imageDownloader.fetchImage(for: mealEntity.mealThumbnailUrl)
                     DispatchQueue.main.async {
                         withAnimation(.smooth(duration: 1.5)) {
                             self.image = image
