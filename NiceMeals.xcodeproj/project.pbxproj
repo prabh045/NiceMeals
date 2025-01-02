@@ -15,6 +15,8 @@
 		7F1F2FD92C7661AE00EF957C /* FetchMealsByCatUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1F2FD82C7661AE00EF957C /* FetchMealsByCatUseCase.swift */; };
 		7F1F2FDB2C76625D00EF957C /* MealsByCategoryRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1F2FDA2C76625D00EF957C /* MealsByCategoryRepo.swift */; };
 		7F1F2FDD2C76644B00EF957C /* MealByCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1F2FDC2C76644B00EF957C /* MealByCategoryViewModel.swift */; };
+		7F2AA0582D16FACB006DD8A8 /* MealCategoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2AA0572D16FACB006DD8A8 /* MealCategoryViewModelTests.swift */; };
+		7F2AA0602D170012006DD8A8 /* MockFetchMealsuseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2AA05F2D170012006DD8A8 /* MockFetchMealsuseCase.swift */; };
 		7F3353982C64F432009B3D70 /* MealCategoryRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3353972C64F432009B3D70 /* MealCategoryRepo.swift */; };
 		7F421B892CA1A09B003F2C82 /* RecipeDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F421B882CA1A09B003F2C82 /* RecipeDetailScreen.swift */; };
 		7F421B8B2CA1A417003F2C82 /* IngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F421B8A2CA1A417003F2C82 /* IngredientsView.swift */; };
@@ -45,6 +47,16 @@
 		7FFA97962CDF8D9A00D18374 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA97952CDF8D9A00D18374 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7F2AA0592D16FACB006DD8A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FDAD5912C5E65FE0091C55F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7FDAD5982C5E65FE0091C55F;
+			remoteInfo = NiceMeals;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		7F0276872C9C5F4800A6F792 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7F099BFD2CE38F0A004B392F /* RecipeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewModel.swift; sourceTree = "<group>"; };
@@ -54,6 +66,9 @@
 		7F1F2FD82C7661AE00EF957C /* FetchMealsByCatUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMealsByCatUseCase.swift; sourceTree = "<group>"; };
 		7F1F2FDA2C76625D00EF957C /* MealsByCategoryRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsByCategoryRepo.swift; sourceTree = "<group>"; };
 		7F1F2FDC2C76644B00EF957C /* MealByCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealByCategoryViewModel.swift; sourceTree = "<group>"; };
+		7F2AA0552D16FACB006DD8A8 /* NiceMealsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NiceMealsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F2AA0572D16FACB006DD8A8 /* MealCategoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCategoryViewModelTests.swift; sourceTree = "<group>"; };
+		7F2AA05F2D170012006DD8A8 /* MockFetchMealsuseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFetchMealsuseCase.swift; sourceTree = "<group>"; };
 		7F3353972C64F432009B3D70 /* MealCategoryRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCategoryRepo.swift; sourceTree = "<group>"; };
 		7F421B882CA1A09B003F2C82 /* RecipeDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailScreen.swift; sourceTree = "<group>"; };
 		7F421B8A2CA1A417003F2C82 /* IngredientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsView.swift; sourceTree = "<group>"; };
@@ -86,6 +101,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7F2AA0522D16FACB006DD8A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7FDAD5962C5E65FE0091C55F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -190,6 +212,23 @@
 				7F5F5D202D07226B0059C4DA /* RemoveFavoriteView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7F2AA0562D16FACB006DD8A8 /* NiceMealsTests */ = {
+			isa = PBXGroup;
+			children = (
+				7F2AA05E2D16FFEE006DD8A8 /* MockFiles */,
+				7F2AA0572D16FACB006DD8A8 /* MealCategoryViewModelTests.swift */,
+			);
+			path = NiceMealsTests;
+			sourceTree = "<group>";
+		};
+		7F2AA05E2D16FFEE006DD8A8 /* MockFiles */ = {
+			isa = PBXGroup;
+			children = (
+				7F2AA05F2D170012006DD8A8 /* MockFetchMealsuseCase.swift */,
+			);
+			path = MockFiles;
 			sourceTree = "<group>";
 		};
 		7F82A09A2C67E870004A1DA9 /* UseCases */ = {
@@ -362,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				7FDAD59B2C5E65FE0091C55F /* NiceMeals */,
+				7F2AA0562D16FACB006DD8A8 /* NiceMealsTests */,
 				7FDAD59A2C5E65FE0091C55F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -370,6 +410,7 @@
 			isa = PBXGroup;
 			children = (
 				7FDAD5992C5E65FE0091C55F /* NiceMeals.app */,
+				7F2AA0552D16FACB006DD8A8 /* NiceMealsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -398,6 +439,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7F2AA0542D16FACB006DD8A8 /* NiceMealsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F2AA05D2D16FACB006DD8A8 /* Build configuration list for PBXNativeTarget "NiceMealsTests" */;
+			buildPhases = (
+				7F2AA0512D16FACB006DD8A8 /* Sources */,
+				7F2AA0522D16FACB006DD8A8 /* Frameworks */,
+				7F2AA0532D16FACB006DD8A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7F2AA05A2D16FACB006DD8A8 /* PBXTargetDependency */,
+			);
+			name = NiceMealsTests;
+			productName = NiceMealsTests;
+			productReference = 7F2AA0552D16FACB006DD8A8 /* NiceMealsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		7FDAD5982C5E65FE0091C55F /* NiceMeals */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FDAD5A92C5E65FF0091C55F /* Build configuration list for PBXNativeTarget "NiceMeals" */;
@@ -425,6 +484,10 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					7F2AA0542D16FACB006DD8A8 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 7FDAD5982C5E65FE0091C55F;
+					};
 					7FDAD5982C5E65FE0091C55F = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -444,11 +507,19 @@
 			projectRoot = "";
 			targets = (
 				7FDAD5982C5E65FE0091C55F /* NiceMeals */,
+				7F2AA0542D16FACB006DD8A8 /* NiceMealsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7F2AA0532D16FACB006DD8A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7FDAD5972C5E65FE0091C55F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -461,6 +532,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7F2AA0512D16FACB006DD8A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F2AA0582D16FACB006DD8A8 /* MealCategoryViewModelTests.swift in Sources */,
+				7F2AA0602D170012006DD8A8 /* MockFetchMealsuseCase.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7FDAD5952C5E65FE0091C55F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -504,7 +584,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7F2AA05A2D16FACB006DD8A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7FDAD5982C5E65FE0091C55F /* NiceMeals */;
+			targetProxy = 7F2AA0592D16FACB006DD8A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		7F2AA05B2D16FACB006DD8A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z4P2SA89UW;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.prabh.NiceMealsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NiceMeals.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NiceMeals";
+			};
+			name = Debug;
+		};
+		7F2AA05C2D16FACB006DD8A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z4P2SA89UW;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.prabh.NiceMealsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NiceMeals.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NiceMeals";
+			};
+			name = Release;
+		};
 		7FDAD5A72C5E65FF0091C55F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -687,6 +811,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7F2AA05D2D16FACB006DD8A8 /* Build configuration list for PBXNativeTarget "NiceMealsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F2AA05B2D16FACB006DD8A8 /* Debug */,
+				7F2AA05C2D16FACB006DD8A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7FDAD5942C5E65FE0091C55F /* Build configuration list for PBXProject "NiceMeals" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
