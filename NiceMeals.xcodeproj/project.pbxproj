@@ -33,6 +33,7 @@
 		7F82E1572C6D32F20030A346 /* MealsGridScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F82E1562C6D32F20030A346 /* MealsGridScreen.swift */; };
 		7F9119D52CEE112000F09625 /* FavoritesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9119D42CEE112000F09625 /* FavoritesScreen.swift */; };
 		7F9119DA2CEE194600F09625 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9119D92CEE194600F09625 /* FavoriteView.swift */; };
+		7FD5ADC02D7EF84C007F2016 /* LeakyClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5ADBF2D7EF84C007F2016 /* LeakyClass.swift */; };
 		7FDAD59D2C5E65FE0091C55F /* NiceMealsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAD59C2C5E65FE0091C55F /* NiceMealsApp.swift */; };
 		7FDAD59F2C5E65FE0091C55F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAD59E2C5E65FE0091C55F /* ContentView.swift */; };
 		7FDAD5A12C5E65FE0091C55F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAD5A02C5E65FE0091C55F /* Item.swift */; };
@@ -85,6 +86,7 @@
 		7F82E1562C6D32F20030A346 /* MealsGridScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsGridScreen.swift; sourceTree = "<group>"; };
 		7F9119D42CEE112000F09625 /* FavoritesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreen.swift; sourceTree = "<group>"; };
 		7F9119D92CEE194600F09625 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		7FD5ADBF2D7EF84C007F2016 /* LeakyClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeakyClass.swift; sourceTree = "<group>"; };
 		7FDAD5992C5E65FE0091C55F /* NiceMeals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NiceMeals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FDAD59C2C5E65FE0091C55F /* NiceMealsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiceMealsApp.swift; sourceTree = "<group>"; };
 		7FDAD59E2C5E65FE0091C55F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				7FDAD5A22C5E65FF0091C55F /* Assets.xcassets */,
 				7FE608792CE77A3800AF11D2 /* Optional+Extension.swift */,
 				7F4B16A02CF4B44E00E81590 /* PersistenceController.swift */,
+				7FD5ADBF2D7EF84C007F2016 /* LeakyClass.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				7FDAD5B32C5E70570091C55F /* NetworkServiceImpl.swift in Sources */,
 				7F9119DA2CEE194600F09625 /* FavoriteView.swift in Sources */,
 				7F63936F2C6145AC00947A52 /* ApiError.swift in Sources */,
+				7FD5ADC02D7EF84C007F2016 /* LeakyClass.swift in Sources */,
 				7F1F2FD72C7660FA00EF957C /* MealRecipeModel.swift in Sources */,
 				7F4FCB3C2C6548F500FC3551 /* FetchMealsUseCaseImp.swift in Sources */,
 				7FDAD59D2C5E65FE0091C55F /* NiceMealsApp.swift in Sources */,
