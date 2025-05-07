@@ -20,9 +20,9 @@ class LeakyClass {
   }
 }
 
-struct ContentView: View {
+struct LeakyScreen: View {
   @State private var isDetailViewShowing = false
-
+    
   var body: some View {
     VStack {
       Button("Go to Detail View") {
@@ -41,7 +41,7 @@ struct DetailView: View {
   var body: some View {
     Text("Detail View: \(leakyClass.value)")
       .onDisappear {
-        leakyClass.handler?()
+        leakyClass.bruh?()
       }
   }
 }
