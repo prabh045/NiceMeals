@@ -19,6 +19,10 @@ struct ContentView: View {
                 .tabItem {
                     Label("Favorites", systemImage: "star")
                 }
+            LeakyScreen()
+                .tabItem {
+                    Label("Leaky", systemImage: "star")
+                }
         }
         .tint(.black)
     }
